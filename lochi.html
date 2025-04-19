@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$LOCHI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Neon+Tubes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/0/0e/Babosa_de_mar_%28Chromodoris_lochi%29%2C_Zanz%C3%ADbar%2C_Tanzania%2C_2024-05-30%2C_DD_27.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .overlay {
+      background: rgba(0, 10, 30, 0.5);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      animation: floatUp 20s infinite ease-in;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-200px) scale(1); opacity: 0; }
+    }
+
+    .bubble-button {
+      position: absolute;
+      top: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      z-index: 2;
+      transition: transform 0.2s;
+    }
+
+    .bubble-button:hover {
+      transform: scale(1.1);
+    }
+
+    .bubble-left { left: 20px; }
+    .bubble-right { right: 20px; }
+
+    .bubble-button img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding-top: 120px;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 5rem;
+      font-family: 'Neon Tubes', cursive;
+      color: #00f0ff;
+      text-shadow:
+        0 0 5px #00f0ff,
+        0 0 10px #00e1ff,
+        0 0 20px #00c3ff,
+        0 0 40px #008aff;
+      margin-bottom: 40px;
+    }
+
+    #countdown {
+      font-size: 4rem;
+      color: #ffffff;
+      background: rgba(0, 0, 50, 0.5);
+      padding: 30px;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 0 30px #6f9fff;
+      margin-bottom: 20px;
+    }
+
+    .extra-text {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #00f7ff;
+      text-shadow: 2px 2px #00334d;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      color: white;
+      background-color: #00c3ff;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #00e1ff;
+      transition: transform 0.3s;
+    }
+
+    .buy-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.style.width = `${Math.random() * 40 + 10}px`;
+      bubble.style.height = bubble.style.width;
+      bubble.style.left = `${Math.random() * 100}vw`;
+      bubble.style.animationDuration = `${Math.random() * 15 + 10}s`;
+      document.body.appendChild(bubble);
+    }
+  </script>
+
+  <a href="https://en.wikipedia.org/wiki/Chromodoris_lochi" class="bubble-button bubble-left" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/240px-Wikipedia-logo-v2.svg.png" alt="Wikipedia">
+  </a>
+  <a href="https://x.com/i/communities/1913585072977985578" class="bubble-button bubble-right" target="_blank">
+    <img src="https://img.freepik.com/vecteurs-libre/nouvelle-conception-icone-x-du-logo-twitter-2023_1017-45418.jpg" alt="X">
+  </a>
+
+  <div class="content">
+    <h1>$LOCHI</h1>
+    <div id="countdown">Chargement...</div>
+    <div class="extra-text">CA : SOON</div>
+    <div class="extra-text">SWIM WITH $LOCHI</div>
+    <a class="buy-button" href="https://pump.fun/board" target="_blank">BUY</a>
+  </div>
+
+  <script>
+    function updateCountdown() {
+      const now = new Date();
+      const tonight = new Date();
+      tonight.setHours(23, 0, 0, 0);
+
+      if (now > tonight) {
+        document.getElementById("countdown").innerHTML = "C'est lancé !";
+        return;
+      }
+
+      const diff = tonight - now;
+      const hours = String(Math.floor((diff / (1000 * 60 * 60)))).padStart(2, '0');
+      const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+      const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+
+      document.getElementById("countdown").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
