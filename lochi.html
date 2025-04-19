@@ -163,29 +163,15 @@
 
   <div class="content">
     <h1>$LOCHI</h1>
-    <div id="countdown">Chargement...</div>
-    <div class="extra-text">CA : SOON</div>
+    <div id="countdown">0h 00m 00s</div>
+    <div class="extra-text">CA : 9rt2aum1Vd2sEihXXEMd2SqeA7sZzp5A1GNsJ3kbpump</div>
     <div class="extra-text">SWIM WITH $LOCHI</div>
     <a class="buy-button" href="https://pump.fun/board" target="_blank">BUY</a>
   </div>
 
   <script>
     function updateCountdown() {
-      const now = new Date();
-      const tonight = new Date();
-      tonight.setHours(23, 0, 0, 0);
-
-      if (now > tonight) {
-        document.getElementById("countdown").innerHTML = "C'est lancé !";
-        return;
-      }
-
-      const diff = tonight - now;
-      const hours = String(Math.floor((diff / (1000 * 60 * 60)))).padStart(2, '0');
-      const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
-      const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-
-      document.getElementById("countdown").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+      document.getElementById("countdown").innerHTML = `0h 00m 00s`;
     }
 
     setInterval(updateCountdown, 1000);
